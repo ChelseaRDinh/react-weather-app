@@ -9,7 +9,7 @@ body {
 }
 
 .app {
-	background-image: url('./assets/summer.jpg');
+	background-image: url('./assets/clear.jpg');
 	background-size: cover;
 	background-position: bottom;
 
@@ -21,28 +21,28 @@ body {
 }
 
 .app.clouds {
-	background-image: url('./assets/winter.jpg');
+	background-image: url('./assets/clouds.jpg');
 	transition: 0.4s ease-in;
 }
 
 .app.clear {
-	background-image: url('./assets/summer.jpg');
+	background-image: url('./assets/clear.jpg');
 	transition: 0.4s ease-in;
 }
 
 .app.rain {
-	background-image: url('./assets/spring.jpg');
+	background-image: url('./assets/clouds.jpg');
 	transition: 0.4s ease-in;
 }
 
 .app.snow {
-	background-image: url('./assets/fall.jpg');
+	background-image: url('./assets/clear.jpg');
 	transition: 0.4s ease-in;
 }
 
 main {
 	min-height: 100vh;
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.75));
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
 	padding: 25px;
 }
 

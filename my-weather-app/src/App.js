@@ -5,6 +5,24 @@ const api = {
 	url: 'https://api.openweathermap.org/data/2.5/'
 };
 
+// Weather groups
+// Thunderstorm
+// Drizzle
+// Rain
+// Snow
+// Mist
+// Fog
+// Smoke
+// Sand
+// Haze
+// Dust
+// Tornado
+// Squall
+// Ash
+// Clear
+// Clouds
+
+
 function App() {
 
   const [query, setQuery] = useState('');
@@ -24,7 +42,10 @@ function App() {
 				console.log(query);
 				setQuery('');
 				console.log(result);
-		});
+			})
+			.catch(error => {
+				console.error('Error: ', error);
+			});
 	}
   }
 
