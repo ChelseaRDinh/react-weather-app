@@ -15,16 +15,17 @@ function App() {
 	if (evt.key === 'Enter') {
 		// Get weather from API with fetch
 		fetch(`${api.url}weather?q=${query}&units=metric&APPID=${api.key}`)
-		// Get JSON promise from API response
-		.then(response => response.json())
-		// Pass JSON promise to another promise
-		.then(result => 
-			setWeather(result));
-			//Reset query field after search submission
-			setQuery('');
-			console.log(weather);
+			// Get JSON promise from API response
+			.then(response => response.json())
+			// Pass JSON promise to another promise
+			.then(result => {
+				setWeather(result);
+				//Reset query field after search submission
+				setQuery('');
+				console.log(result);
+		});
 	}
-  };
+  }
 
   // Function build date into string format
   const dateBuilder = (d) => {
@@ -55,22 +56,24 @@ function App() {
 					onKeyPress={search}
 				/>
 			</div>
+			{(typeof weather.main != 'undefined') ? (
 			<div className="weather-info">
 				<div className="location-box">
 					<div className="location">
-						New York City, US
+						{weather.name}, {weather.sys.country}
 					</div>
 					<div className="date">{dateBuilder(new Date())}</div>
 				</div>
 				<div className="weather-box">
 					<div className="temperature">
-						15°C
+						{Math.round(weather.main.temp)}°C
 					</div>
 					<div className="weather">
-						Sunny
+						{weather.weather[0].main}
 					</div>
 				</div>
 			</div>
+			) : ('')}
 		</main>
     </div>
   );
