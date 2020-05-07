@@ -5,6 +5,11 @@ const api = {
 	url: 'https://api.openweathermap.org/data/2.5/'
 };
 
+const clouds = 'clouds';
+const clear = 'clear';
+const rain = 'rain';
+const snow = 'snow';
+
 function App() {
 
   const [query, setQuery] = useState('');
@@ -21,6 +26,7 @@ function App() {
 			.then(result => {
 				setWeather(result);
 				//Reset query field after search submission
+				console.log(query);
 				setQuery('');
 				console.log(result);
 		});
@@ -44,36 +50,38 @@ function App() {
   };
 	
   return (
-    <div className="app">
+	<div className={('app '+(typeof weather.main != 'undefined' ? (weather.weather[0].main).toLowerCase() : ''))}>
 		<main>
 			<div className="search-box">
 				<input 
 					type="text" 
 					className="search-bar" 
-					placeholder="Search..."
+					placeholder="Enter Location"
 					onChange={e => setQuery(e.target.value)}
 					value={query}
 					onKeyPress={search}
 				/>
 			</div>
-			{(typeof weather.main != 'undefined') ? (
 			<div className="weather-info">
-				<div className="location-box">
-					<div className="location">
-						{weather.name}, {weather.sys.country}
+			{(typeof weather.main != 'undefined') ? (
+				<div className="weather-text">
+					<div className="location-box">
+						<div className="location">
+							{weather.name}, {weather.sys.country}
+						</div>
+						<div className="date">{dateBuilder(new Date())}</div>
 					</div>
-					<div className="date">{dateBuilder(new Date())}</div>
+					<div className="weather-box">
+						<div className="temperature">
+							{Math.round(weather.main.temp)}°C
+						</div>
+						<div className="weather">
+							{weather.weather[0].main}
+						</div>
+					</div>
 				</div>
-				<div className="weather-box">
-					<div className="temperature">
-						{Math.round(weather.main.temp)}°C
-					</div>
-					<div className="weather">
-						{weather.weather[0].main}
-					</div>
-				</div>
+			) : <div className="error-message">Cannot find location</div>}
 			</div>
-			) : ('')}
 		</main>
     </div>
   );

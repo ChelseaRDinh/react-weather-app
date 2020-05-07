@@ -15,8 +15,20 @@ body {
 	transition: 0.4 ease-out;
 }
 
-.app.winter {
+.app.clouds {
 	background-image: url('./assets/winter.jpg');
+}
+
+.app.clear {
+	background-image: url('./assets/summer.jpg');
+}
+
+.app.rain {
+	background-image: url('./assets/spring.jpg');
+}
+
+.app.snow {
+	background-image: url('./assets/fall.jpg');
 }
 
 main {
@@ -85,4 +97,10 @@ main {
 .weather {
 	font-size: 25px;
 	margin-top: 10px;
+}
+
+.error-message {
+	display: flex;
+	font-size: 25px;
+	justify-content: center;
 }
