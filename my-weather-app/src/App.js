@@ -5,11 +5,6 @@ const api = {
 	url: 'https://api.openweathermap.org/data/2.5/'
 };
 
-const clouds = 'clouds';
-const clear = 'clear';
-const rain = 'rain';
-const snow = 'snow';
-
 function App() {
 
   const [query, setQuery] = useState('');
@@ -56,7 +51,7 @@ function App() {
 				<input 
 					type="text" 
 					className="search-bar" 
-					placeholder="Enter Location"
+					placeholder="Enter city, state/province, country"
 					onChange={e => setQuery(e.target.value)}
 					value={query}
 					onKeyPress={search}
