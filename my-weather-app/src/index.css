@@ -54,9 +54,35 @@ main {
 	background-color: rgba(255, 255, 255, 0.75);
 }
 
-.location-box {
+.weather-info {
 	color: white;
 	font-family: Cambria, sans-serif;
-	font-size: 20px;
 	text-align: center;
+	text-shadow: 2px 2px rgba(50, 50, 70, 0.5);	
+}
+
+.location {
+	font-size: 30px;
+}
+
+.date {
+	font-style: italic;
+	font-size: 15px;
+	margin-top: 10px;
+}
+
+.weather-box {
+	margin-top: 80px;
+}
+
+.temperature {
+	font-size: 75px;
+	text-shadow: 2px 2px rgba(50, 50, 70, 0.2);
+	background-color: rgba(255, 255, 255, 0.2);
+	border-radius: 20px;
+}
+
+.weather {
+	font-size: 25px;
+	margin-top: 10px;
 }
